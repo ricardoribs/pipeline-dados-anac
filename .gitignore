@@ -1,0 +1,20 @@
+# Ambiente Virtual do Python
+venv/
+
+# Arquivos de cache do Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Arquivos gerados pelo dbt que não devem ser versionados
+meu_projeto_dbt/logs/
+meu_projeto_dbt/dbt_packages/
+meu_projeto_dbt/target/
+
+# Arquivos do VSCode
+.vscode/
+
+# Arquivos de sistema (Windows/macOS)
+.DS_Store
+Thumbs.db

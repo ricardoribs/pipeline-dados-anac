@@ -1,0 +1,49 @@
+
+
+services:
+  postgres_airflow:
+    image: postgres:13
+    container_name: postgres_airflow
+    environment:
+      - POSTGRES_USER=airflow
+      - POSTGRES_PASSWORD=airflow
+      - POSTGRES_DB=airflow
+    ports:
+      - "5433:5432"
+
+  airflow:
+    # A imagem oficial do Airflow
+    build: .
+    container_name: airflow
+    dns: 8.8.8.8
+    depends_on:
+      - postgres_airflow
+    environment:
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres_airflow/airflow
+      - AIRFLOW__WEBSERVER__SECRET_KEY=uma_chave_super_secreta_para_seu_airflow
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./data:/opt/airflow/data
+      - ./meu_projeto_dbt:/opt/airflow/dbt
+    command: airflow standalone
+
+  # --- Este é o serviço que provavelmente causou o erro ---
+  # Ele deve estar alinhado com 'airflow' e 'postgres_airflow'
+  postgres_data:
+    image: postgres:13
+    container_name: postgres_data
+    environment:
+      - POSTGRES_USER=anac_user
+      - POSTGRES_PASSWORD=anac_password
+      - POSTGRES_DB=anac_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+# --- Esta seção 'volumes' deve estar no nível mais alto, alinhada com 'services' ---
+volumes:
+  pgdata: {}

@@ -1,0 +1,12 @@
+meu_projeto_dbt:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: aws-1-sa-east-1.pooler.supabase.com
+      user: postgres.imwgqixbgqqzphonyfyz
+      password: projetoanac2025
+      port: 5432
+      dbname: postgres
+      schema: public
+      threads: 1
