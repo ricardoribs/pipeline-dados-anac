@@ -28,4 +28,4 @@ CSV (Dados Brutos) ➡️ **Airflow** (Orquestração e Ingestão) ➡️ **Post
 6.  **Acesse o Dashboard:** Conecte o Looker Studio ao banco de dados Supabase e use a tabela `voos_limpos` como fonte de dados.
 
 ## 📊 Preview do Dashboard
-*(Dica: Tire um print do seu dashboard final no Looker Studio e adicione a imagem ao seu projeto para que ela apareça aqui!)*
+*![Preview do Dashboard](dashboard_anac.png)*
