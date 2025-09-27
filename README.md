@@ -19,7 +19,7 @@ CSV (Dados Brutos) ➡️ **Airflow** (Orquestração e Ingestão) ➡️ **Post
 
 ## 🚀 Como Executar o Projeto
 1.  **Pré-requisitos:** Docker Desktop instalado e rodando.
-2.  **Clone o repositório:** `git clone https://github.com/SEU_USUARIO/pipeline-dados-anac.git`
+2.  **Clone o repositório:** `git clone https://github.com/ricardoribs/pipeline-dados-anac.git`
 3.  **Configure as credenciais:** Crie um banco de dados no Supabase e preencha as credenciais nos arquivos `meu_projeto_dbt/profiles.yml` e na conexão `postgres_anac` do Airflow.
 4.  **Suba os contêineres:** Na raiz do projeto, execute `docker-compose up -d --build`.
 5.  **Execute o Pipeline:**
